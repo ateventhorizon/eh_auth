@@ -11,7 +11,7 @@ const router = express.Router();
 const getUser = async req => {
     return {
         expires: req.user.expires,
-        user: { name: req.user.name, email: req.user.email, guest: req.user.guest },
+        user: { id:req.user._id, name: req.user.name, email: req.user.email, guest: req.user.guest },
         session: req.user.hasSession ? req.user.sessionId : undefined
     };
 }

@@ -1,6 +1,6 @@
 {
   "name": "eh_auth_and_auth",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "auth and auth",
   "main": "index.js",
   "scripts": {
