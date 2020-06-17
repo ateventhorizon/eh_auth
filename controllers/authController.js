@@ -20,6 +20,10 @@ const getUserFromRequest = async req => {
   if (req && req.signedCookies && req.signedCookies[globalConfig.TokenCookie]) {
     jwtToken = req.signedCookies[globalConfig.TokenCookie];
   }
+  const bearerHeader = "Bearer ";
+  if ( !jwtToken && req && req.headers && req.headers.authorization && req.headers.authorization.length > bearerHeader.length ) {
+    jwtToken = req.headers.authorization.substring(bearerHeader.length, req.headers.authorization.length);
+  }
   let aftToken = null;
   if (req && req.headers && req.headers[globalConfig.AntiForgeryTokenCookie]) {
     aftToken = req.headers[globalConfig.AntiForgeryTokenCookie];
